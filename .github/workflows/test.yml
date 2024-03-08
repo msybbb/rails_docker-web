@@ -18,14 +18,14 @@ jobs:
         run: |
           echo "step2..$sample_env"
 
-  # job1:
-  #   needs: setup
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Step 1
-  #       run: echo "Step 1"
-  #     - name: Step 2
-  #       run: echo "Sample environment variable: $sample_env"
+  job1:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1
+        run: echo "Step 1"
+      - name: Step 2
+        run: echo "Sample environment variable: $sample_env"
 
   # job1-2:
   #   needs: [job1, job2]  # job1 と job2 の終了が必要
