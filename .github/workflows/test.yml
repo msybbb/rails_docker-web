@@ -8,7 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initial Setup
-        run: echo "Performing initial setup..."
+        run: |
+          echo "Performing initial setup..."
+          echo "sample_env=$sample_env" >> $GITHUB_ENV
         # 環境変数を設定
         env:
           sample_env: "test"
