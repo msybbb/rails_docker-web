@@ -14,35 +14,39 @@ jobs:
         # 環境変数を設定
         env:
           sample_env: "test"
+    step2:
+      - name: step2
+        run: |
+          echo "step2..$sample_env"
 
-  job1:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Step 1
-        run: echo "Step 1"
-      - name: Step 2
-        run: echo "Sample environment variable: $sample_env"  # sample_env を参照
+  # job1:
+  #   needs: setup
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Step 1
+  #       run: echo "Step 1"
+  #     - name: Step 2
+  #       run: echo "Sample environment variable: $sample_env"
 
-  job1-2:
-    needs: [job1, job2]  # job1 と job2 の終了が必要
-    runs-on: ubuntu-latest
-    steps:
-      - name: Job1-2 Step
-        run: echo "Job1-2 Step"
+  # job1-2:
+  #   needs: [job1, job2]  # job1 と job2 の終了が必要
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Job1-2 Step
+  #       run: echo "Job1-2 Step"
 
-  job2:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Step 3
-        run: echo "Step 3"
-      - name: Step 4
-        run: echo "Sample environment variable: $sample_env"  # sample_env を参照
+  # job2:
+  #   needs: setup
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Step 3
+  #       run: echo "Step 3"
+  #     - name: Step 4
+  #       run: echo "Sample environment variable: $sample_env"  # sample_env を参照
 
-  job2-2:
-    needs: [job1, job2]  # job1 と job2 の終了が必要
-    runs-on: ubuntu-latest
-    steps:
-      - name: Job2-2 Step
-        run: echo "Job2-2 Step"
+  # job2-2:
+  #   needs: [job1, job2]  # job1 と job2 の終了が必要
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Job2-2 Step
+  #       run: echo "Job2-2 Step"
